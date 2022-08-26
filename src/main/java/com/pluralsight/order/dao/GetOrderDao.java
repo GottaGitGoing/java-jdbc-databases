@@ -40,9 +40,9 @@ public class GetOrderDao {
             if (!rs.wasNull())
             {
                 orderDto = new OrderDto();
-                orderDto.setOrderId(rs.getInt("order_id"));
-                orderDto.setCustomerId(rs.getInt("order_customer_id"));
-                orderDto.setDate(rs.getDate("order_date"));
+                orderDto.setOrderId(rs.getLong("order_id"));
+                orderDto.setCustomerId(rs.getLong("order_customer_id"));
+                orderDto.setDate(rs.getTimestamp("order_date"));
                 orderDto.setStatus(rs.getString("order_status"));
             }
 
