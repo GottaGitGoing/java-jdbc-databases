@@ -37,7 +37,7 @@ public class GetOrderDao {
              PreparedStatement ps = createPreparedStatement(con, paramsDto.getOrderId());
              ResultSet rs = createResultSet(ps)
         ) {
-            if (!rs.wasNull())
+            if (rs.next())
             {
                 orderDto = new OrderDto();
                 orderDto.setOrderId(rs.getLong("order_id"));
