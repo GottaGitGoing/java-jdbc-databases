@@ -63,7 +63,7 @@ public class GetOrderDao {
     private PreparedStatement createPreparedStatement(Connection con, long orderId) throws SQLException {
 //        PreparedStatement statement = con.prepareStatement(query.replaceAll("\\?", Long.toBinaryString(orderId)));
         PreparedStatement statement = con.prepareStatement(query);
-        query = Long.toBinaryString(orderId);
+        statement.setLong(1, orderId);
         return statement;
 
 
@@ -76,6 +76,7 @@ public class GetOrderDao {
      * @throws SQLException In case of an error
      */
     private ResultSet createResultSet(PreparedStatement ps) throws SQLException {
-        return ps.getResultSet();
+
+        return ps.executeQuery();
     }
 }

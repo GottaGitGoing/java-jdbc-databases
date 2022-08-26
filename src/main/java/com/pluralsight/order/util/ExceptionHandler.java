@@ -16,6 +16,6 @@ public class ExceptionHandler {
         System.out.println(sqlException.getErrorCode());
         System.out.println(sqlException.getSQLState());
         System.out.println(sqlException.getMessage());
-        sqlException.getStackTrace();
+        sqlException.printStackTrace();
     }
 }
