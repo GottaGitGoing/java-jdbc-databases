@@ -51,7 +51,7 @@ public class InsertOrderDao {
 
                     } else {
 
-                        orderId = result.getLong("order_id");
+                        orderId = result.getLong(1);
 
                         for (OrderDetailDto orderDetailDto : orderDto.getOrderDetail()) {
                             orderDetailDto.setOrderId(orderId);
@@ -92,7 +92,7 @@ public class InsertOrderDao {
      */
     private PreparedStatement createOrderPreparedStatement(Connection con, OrderDto orderDto) throws SQLException {
         PreparedStatement statement = con.prepareStatement(sqlOrder, Statement.RETURN_GENERATED_KEYS);
-        statement.setLong(1, orderDto.getOrderId());
+        statement.setLong(1, orderDto.getCustomerId());
         statement.setTimestamp(2, new Timestamp(orderDto.getDate().getTime()));
         statement.setString(3, OrderStatus.CREATED.getStatus());
         return statement;
